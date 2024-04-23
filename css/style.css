@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/*Variáveis*/
+:root{
+    --font-color:#ffffff;
+    --bg-color: #450c0c;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--bg-color);
+    height: 90vh;
+    font-family: "Montserrat", sans-serif;
+}
+header{
+    width: 100%;
+    height: 10%;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.608);
+}
+#logo{
+    margin-left: 20px;
+    margin-top: 10px;
+    width: 50px;
+}
+#menu{
+    display: flex;
+    list-style: none;
+    gap: 1em;
+}
+#menu a{
+    color: var(--font-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px;
+    transition: 1s ease;
+    font-weight: 600;
+}
+#menu a:hover{
+    color: #a91f1f;
+    font-size: 20px;
+    transition: 1s ease;
+}
+#btnMob{
+    display: none;
+}
+section{
+    width: 100%;
+    height: 80vh;
+    margin: 0.1%;
+}
+footer{
+    width: 100%;
+    height: 2%;
+    background-color: #0000004b;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+}
+#sobre{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10em;
+    width: 100%;
+}
+#sobre p{
+    color: var(--font-color);
+    max-width: 100%;
+    font-size: 30px;
+}
+h1{
+    color: var(--font-color);
+    font-size: 50px;
+}
+#sobre div{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+#image:hover{
+    animation: efeito 1s ease-in-out;
+}
+@keyframes efeito{
+    0%, 100% {transform: scale(1); transform: rotate(0deg);}
+    50%{transform: 1.1; filter: drop-shadow(black 0 0 2rem); 
+        /*transform: rotate(360deg);*/ transform: translate(50px);}
+}
+@media(max-width:500px){
+    body{
+        height: 100vh;
+    }
+    #btnMob{
+        display: flex;
+        padding: 0.5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: none;
+        color: white;
+    }
+    #menu{
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 0px;
+        top: 50px;
+        right: 0px;
+        transition: 0.6s;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+    #menu a{
+        padding: 1rem 0;
+        margin: 0 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 0px solid black ;
+    }
+    nav.active #menu{
+        height: calc(100vh - 70px);
+    }
+    #sobre{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        margin-top: 10%;
+        gap: 1rem;
+    }
+    #sobre p{
+        font-size: 14px;
+        max-width: 100%;
+        text-align: center;
+    }
+    #sobre div{
+        width: 80%;
+        text-align: center;
+    }
+    #hamburg{
+        display: block;
+        width: 20px;
+        border-top: 2px solid;
+    }
+    #hamburg::before, #haburg::after{
+        content: '';
+        display: block;
+        background: currentColor;
+        width: 20px;
+        height: 2px;
+        margin-top: 5px;
+        transition: 1s;
+        position: relative;
+    }
+    nav.active #hamburg::before{
+        transform: rotate(135deg);
+    }
+    nav.active #hamburg::before{
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+}
